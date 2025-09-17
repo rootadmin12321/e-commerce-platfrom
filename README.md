@@ -55,7 +55,7 @@ To get started with the platform, follow these steps :
     DATABASE=<Database name (deaults to "ecomdb")>
     ```
 
-4.  You can entirely alter the initial database as per your requirements without involving in any coding (sql queries will be required only to specify the relations between tables and data types. Even it is a simple process of modifying some text files.). For more info refer the [Complete documentation](https://chathura-de-silva.github.io/E-Commerce-Platform/).
+4.  You can entirely alter the initial database as per your requirements without involving in any coding (sql queries will be required only to specify the relations between tables and data types. Even it is a simple process of modifying some text files.). For more info refer the [Complete documentation].
 
 5.  Run the Project using following command.( `./app.py` is the main file.)
      ```plaintext
