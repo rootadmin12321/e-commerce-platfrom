@@ -1,0 +1,108 @@
+{% extends 'layout.html' %}
+{% block title %} {{ title }} {% endblock %}
+{% block content %}
+<style>
+    /* Add some styles to the background image and container */
+    body {
+        background-image: url('/static/main-backdrop.jpg');  
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center; 
+        height: 100vh; 
+    }
+
+    .form-container {
+        background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background for the form */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        max-width: 400px;
+        width: 100%; /* Ensure the form takes up the available width */
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center the form items horizontally */
+    }
+
+    .links {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    /* Add some styles to the form elements */
+    .form-group {
+        margin: 15px 0;
+        position: relative;
+    }
+
+    label {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #333;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        padding-left: 40px;
+    }
+
+    input[type="submit"] {
+        background-color: #453a2d;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .msg {
+        color: red;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    /* Position the form container in the center */
+    .form-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+<div class="form-container">
+    {% include "alert.html" %}
+    <div class="links">
+        <p>Not a user already? <a href="{{ url_for('signup') }}">Register</a></p>
+    </div>
+    <form action="{{ url_for('login') }}" method="post">
+        <div class="form-group">
+            <label for="username">
+                <i class="fas fa-user"></i>
+            </label>
+            <input type="text" name="username" placeholder="Username" id="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">
+                <i class="fas fa-lock"></i>
+            </label>
+            <input type="password" name="password" placeholder="Password" id="password" required>
+        </div>
+        <div class="msg">{{ msg }}</div>
+        <input type="submit" value="Login">
+    </form>
+</div>
+{% endblock %}

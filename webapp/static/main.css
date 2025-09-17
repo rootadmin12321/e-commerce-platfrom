@@ -1,0 +1,191 @@
+body, h1, h2, h3, h4, p, ul, ol, li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background: rgba(0, 0, 0, 0.2);
+    margin-top: 5rem;
+    color: #00264d;
+    text-align: center;
+    font-family: 'Manjari', sans-serif;
+
+    margin: 0;
+    padding: 0;
+    background-image: url('main-backdrop.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  /* Header */
+  header {
+    background: linear-gradient(45deg, rgba(124, 122, 73,0.25) ,rgba(247, 244, 219, 0.8));
+    height: 90px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border: 1px solid rgba(230, 232, 165, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  
+  #logo {
+    height: 50px;
+  }
+  
+  /* Navigation */
+  #navbarToggle {
+    margin-top: 25px;
+    font-family: 'Manjari', sans-serif;
+    font-size: 19px;
+  }
+  
+  .site-header .navbar-nav .nav-link {
+    color: #26103d;
+  }
+  
+  .site-header .navbar-nav .nav-link:hover {
+    color: #975f31;
+    box-shadow: inset 0 -2px 0 rgba(151, 95, 49, 0.5);}
+  
+  .site-header .navbar-nav .nav-link.active {
+    font-weight: 500;
+    text-decoration: underline;
+    font-style: italic;
+    color: #975f31;
+    box-shadow: inset 0 -2px 0 #975f31;}
+  }
+  
+  /* Content Section */
+  .content-section {
+    background: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+  }
+  
+  /* Card */
+  .card {
+    width: 25rem;
+    height: 40rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Carousel */
+  .carousel-inner {
+    height: 500px;
+    border-radius: 15px;
+  }
+  
+  /* Form */
+  .form {
+    width: 60%;
+    padding: 50px;
+  }
+  
+  /* Main Content */
+  main {
+    margin-top: 20px;
+    color: #00264d;
+    text-align: center;
+    font-family: 'Manjari', sans-serif;
+    max-height: fit-content;
+  }
+  
+  /* Glyphicons */
+  .glyphicon {
+    color: #00264d;
+    height: 10px;
+    font-size: 20px;
+  }
+  
+  .glyphicon:hover {
+    color: #43b9f0;
+  }
+  
+  .content {
+    /* Your content styles here */
+    flex-grow: 1; /* Allow the content to grow and push the footer to the bottom */
+}
+
+  /* Footer */
+  footer {
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    background-color: #f2f2f2;
+    font-family: 'Manjari', sans-serif;
+    margin-top: 40px;
+    color: #00264d;
+    position: sticky;
+    bottom: 0;
+  }
+  
+  /* Additional Styles */
+  .account-heading {
+    font-size: 2.5rem;
+  }
+  
+  .nav-item {
+    margin-right: 20px;
+  }
+  
+  .nav-link {
+    display: inline;
+  }
+  
+            /* Style for the tiles */
+            h1 {
+              font-family: 'Arial', sans-serif;
+              margin-top: 20px;
+              font-size: 36px;
+              color: #333;
+              text-transform: uppercase;
+              letter-spacing: 2px;
+              /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); Remove the text-shadow property */
+              transition: all 0.3s ease-in-out;
+              background: linear-gradient(45deg, #ffff44 ,#000000); /* Fix the linear gradient syntax */
+              -webkit-background-clip: text;
+              background-clip: text;
+              -webkit-text-fill-color: transparent;
+              transform: scale(1);
+            }
+            
+            h1:hover {
+              transform: scale(1.1);
+              color: #8a8654;
+              /* text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4); Remove the text-shadow property */
+            }
+            
+            .top-right {
+              position: fixed;
+              top: 20px;
+              right: 0;
+              padding: 5px 20px;
+              background-color: transparent; /* Set background color to transparent */
+              border: none; /* Remove the border */
+              z-index: 999; /* Adjust the z-index to ensure it's on top */
+          }
+          .top-right-second {
+            background-color:rgba(69, 58, 45,1);
+            border-radius: 30px;
+            padding: 8px 15px;
+            font-style: bold;
+            color: #eeeccc;
+            font-size: small;
+          }
+          .top-right-second:hover {
+            background-color:#000;
+            border-radius: 30px;
+            padding: 8px 15px;
+            font-style: bold;
+            color: #fff;
+            font-size: small;
+         
+          }
+          /* Additional styles for when the user is logged in (adjust as needed) */
+          .top-right.loggedin {
+              background-color: #e5e5e5; /* Change background color when logged in */
+          }

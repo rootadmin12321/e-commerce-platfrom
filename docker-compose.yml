@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+    web:
+      build: .
+      container_name: my_web
+      ports:
+       - '5007:5007'
+      networks:
+       - web_network
+    mydb:
+      image: mysql:latest
+      container_name: mydb
+      ports: 
+       - '3306:3306'
+      environment:
+       MYSQL_ROOT_PASSWORD: root
+       MYSQL_DATABASE: ecomdb
+       MYSQL_BIND_ADDRESS: 0.0.0.0
+      networks:
+       - web_network
+      volumes:
+       - db_data:/var/lib/mysql
+networks:
+   web_network:
+    driver: bridge
+volumes:
+  db_data:

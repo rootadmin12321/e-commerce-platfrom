@@ -1,0 +1,38 @@
+import plotly.express as px
+import plotly.graph_objects as go
+
+@app.callback(
+    Output("your-graph-id", "figure"),
+    [Input("from-year", "value"), Input("to-year", "value")]
+)
+def update_graph(from_year, to_year):
+    df = get_sales_data(from_year, to_year)  # however you're loading it
+
+    # 1. Check if df is empty
+    if df.empty:
+        # return empty graph with message
+        fig = go.Figure()
+        fig.add_annotation(
+            text=f"No data available between {from_year} and {to_year}",
+            xref="paper", yref="paper",
+            showarrow=False,
+            font=dict(size=16)
+        )
+        return fig
+
+    # 2. Check that required columns exist
+    required_cols = {"quantity", "products"}
+    if not required_cols.issubset(df.columns):
+        fig = go.Figure()
+        fig.add_annotation(
+            text=f"Missing columns: {required_cols - set(df.columns)}",
+            xref="paper", yref="paper",
+            showarrow=False,
+            font=dict(size=16, color="red")
+        )
+        return fig
+
+    # 3. Normal case → build bar chart
+    fig = px.bar(df, x="quantity", y="products",
+                 title=f"Product sales quantity over {from_year} to {to_year}")
+    return fig

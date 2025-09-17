@@ -1,0 +1,166 @@
+{% extends "layout.html" %} {% block content %}
+
+<head>
+  <title>Cart</title>
+  <style>
+    @keyframes scale {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.01);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+     table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(30px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 70, 0.37);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.18);   
+    }
+
+    table:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Style for table header */
+    th {
+      background-color: rgba(69, 58, 45,0.9);
+      color: #fff;
+      padding: 15px 30px;
+      text-align: left;
+    }
+
+    /* Style for table rows */
+    tr:nth-child(even) {
+      background-color: rgba(242, 242, 242,0.5);
+    }
+
+    /* Style for table cells */
+    td {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+
+    /* Style for the image */
+    .variant-img {
+      max-width: 50px;
+      max-height: 35px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    /* Style for h1 */
+    h1 {
+      color: #453a2d;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Style for the message paragraph */
+    p {
+      color: #453a2d;
+      text-align: center;
+      font-style: italic;
+    }
+
+    /* Style for the buttons */
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px;
+      text-decoration: none;
+      color: #fff;
+      background-color: #453a2d;
+      border: none;
+      border-radius: 10px;
+      transition: transform 0.2s;
+    }
+    .btn-secondary {
+      background-color: #808080;
+    }
+
+    .btn:hover {
+      background-color: #634f3e;
+      transform: scale(1.05);
+      color:#fff
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Your Cart - {{username}}</h1>
+  {% if signedin %}
+  <table>
+    <!-- Display cart data if user is signed in -->
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Variant Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in cart %}
+      <!-- Order of the query = quantity, name, price, variant_image, title -->
+      <tr>
+        <td>{{ item[4]+" ("+item[1]+")"}}</td>
+        <td>{{ item[0] }}</td>
+        <td>${{ item[2] }}</td>
+        <td><img class= "variant-img" src="/static/{{ item[3] }}" alt="Variant Image" /></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <!-- Display a message if the user is not signed in or the cart is empty -->
+  <p>You are currently logged in as a guest</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Variant Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in guest_cart %}
+      <tr>
+        <!-- p.title, v.name, v.price, v.variant_image -->
+        <td>{{ item[0] +" ("+ item[1]+")"}}</td>
+        <td>{{item[4] }}</td>
+        <td>${{ item[2] }}</td>
+        <td><img class= "variant-img"src="/static/{{ item[3] }}" alt="Variant Image" /></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+
+  <!-- Buttons to navigate to checkout and product pages -->
+  <div>
+    <a href="{{ url_for('checkout') }}" class="btn btn-primary"
+      >Go to Checkout</a
+    >
+    <a href="{{ url_for('products') }}" class="btn btn-secondary"
+      >Continue Shopping</a
+    >
+  </div>
+</body>
+
+{% endblock content %}

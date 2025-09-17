@@ -1,0 +1,33 @@
+
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<body>
+    <style type="text/css">
+        .cont {
+            margin-top: 20px;
+            max-width: 80%;
+            text-align: center;
+            padding: 60px 60px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            background: rgba(249, 245, 216,0.8);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.18);  
+          }
+        .cont:hover {
+        box-shadow: 0 0 10px #7a7a69, 0 0 20px #7a7a69, 0 0 30px #7a7a69;
+    }
+    </style>
+    
+    <iframe class ="cont" src="http://127.0.0.1:5007/dash" width="1000px" height="800px" ></iframe>
+    <iframe class ="cont" src="http://127.0.0.1:5007/dash2" width="1000px" height="1000px" ></iframe>
+    <iframe class ="cont" src="http://127.0.0.1:5007/dash3" width="1000px" height="800px" ></iframe>
+    <iframe class ="cont" src="http://127.0.0.1:5007/dash4" width="1000px" height="800px" ></iframe>
+
+</body>
+{% endblock %}
