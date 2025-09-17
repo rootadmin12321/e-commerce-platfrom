@@ -38,7 +38,7 @@ To get started with the platform, follow these steps :
 1.  Clone this repository.
 
     ```plaintext
-    https://github.com/chathura-de-silva/E-Commerce-Platform
+    https://github.com/rootadmin12321/e-commerce-platfrom.git
     ```
 2.  cd in to the project directory and Install the dependencies using following command.(Activate the Virutal Environment if you are using one. It's recommended to use one.)
 
